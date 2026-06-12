@@ -194,8 +194,8 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0 auto;
   padding: 3rem 1.5rem 4rem;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
   align-items: center;
 }
 .hero-eyebrow {
@@ -232,9 +232,18 @@ img { display: block; max-width: 100%; height: auto; }
   border: 1px solid var(--line);
   clip-path: var(--clip-notch);
 }
-.crt-bezel img {
+.crt-bezel canvas {
+  display: block;
   width: 100%;
-  filter: saturate(1.05) contrast(1.02);
+  aspect-ratio: 16 / 9;
+  background: #0a0b0f;
+  image-rendering: pixelated;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.crt-bezel canvas:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 .crt figcaption {
   margin-top: 0.85rem;
