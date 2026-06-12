@@ -367,41 +367,6 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ---------- Projects ---------- */
-.projects-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-.projects-head .section-title { margin-bottom: 0; }
-.player-card {
-  flex-shrink: 0;
-  width: clamp(120px, 16vw, 168px);
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  padding: 0.6rem 0.6rem 0.2rem;
-  clip-path: var(--clip-notch);
-  transition: transform 220ms var(--ease-out), border-color 200ms ease;
-}
-.player-svg { display: block; width: 100%; height: auto; }
-.player-cap {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  color: var(--accent);
-  text-align: center;
-  padding: 0.55rem 0 0.35rem;
-}
-/* He blinks every few seconds */
-.player-svg .lids { opacity: 0; }
-@media (prefers-reduced-motion: no-preference) {
-  .player-svg .lids { animation: blink-lids 4.6s linear infinite; }
-}
-@keyframes blink-lids {
-  0%, 92.9%, 97.1%, 100% { opacity: 0; }
-  93%, 97% { opacity: 1; }
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -726,10 +691,6 @@ img { display: block; max-width: 100%; height: auto; }
   }
   .hud-stat:hover dd { transform: scale(1.07); }
   .zoom:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .player-card:hover {
-    transform: rotate(-2deg) translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
-  }
 }
 
 /* ---------- Reveal on scroll ---------- */
