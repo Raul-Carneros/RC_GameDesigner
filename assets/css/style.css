@@ -224,7 +224,56 @@ img { display: block; max-width: 100%; height: auto; }
   flex-wrap: wrap;
 }
 
-/* CRT frame around the hero screenshot */
+/* Pixel room scene with the CRT television playing the trailer */
+.room-wrap { margin: 0; }
+.room {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #171a24;
+  clip-path: var(--clip-notch);
+}
+.room-svg { display: block; width: 100%; height: auto; }
+.tv-video {
+  /* Matches the TV screen rect in the SVG viewBox (352,130 236x140 of 640x400) */
+  position: absolute;
+  left: 55%;
+  top: 32.5%;
+  width: 36.875%;
+  height: 35%;
+  background: #000;
+}
+.tv-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.room-wrap figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Hero load-in: everything drops from above and bounces into place */
+@keyframes hero-drop {
+  0%   { transform: translateY(-90vh); animation-timing-function: cubic-bezier(0.5, 0, 1, 0.6); }
+  50%  { transform: translateY(0) scale(1, 1); animation-timing-function: ease-out; }
+  58%  { transform: translateY(0) scale(1.05, 0.92); animation-timing-function: ease-out; }
+  70%  { transform: translateY(-20px) scale(0.99, 1.02); animation-timing-function: ease-in; }
+  80%  { transform: translateY(0) scale(1.01, 0.97); animation-timing-function: ease-out; }
+  90%  { transform: translateY(-7px) scale(1, 1); animation-timing-function: ease-in; }
+  100% { transform: translateY(0); }
+}
+.hero-copy > * {
+  animation: hero-drop 1.05s both;
+  transform-origin: center bottom;
+}
+.hero-copy .hero-eyebrow { animation-delay: 0.05s; }
+.hero-copy h1 { animation-delay: 0.15s; }
+.hero-copy .hero-sub { animation-delay: 0.3s; }
+.hero-copy .hero-actions { animation-delay: 0.42s; }
+
+/* CRT frame around the mini-game */
 .crt { position: relative; }
 .crt-bezel {
   background: var(--surface-2);
@@ -427,6 +476,18 @@ img { display: block; max-width: 100%; height: auto; }
 .edu h4 { font-size: 1.05rem; line-height: 1.4; }
 .edu p { color: var(--muted); margin-top: 0.3rem; }
 
+/* ---------- Arcade / bonus level ---------- */
+.arcade-sub {
+  color: var(--muted);
+  max-width: 36rem;
+  margin-top: -1.5rem;
+  margin-bottom: 2.5rem;
+}
+.arcade-cab {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
 /* ---------- Contact ---------- */
 .contact {
   text-align: center;
@@ -465,7 +526,7 @@ img { display: block; max-width: 100%; height: auto; }
   border: 0;
   padding: 0;
   background: transparent;
-  max-width: min(720px, calc(100vw - 2rem));
+  max-width: min(980px, calc(100vw - 2rem));
   width: 100%;
   margin: auto;
 }
@@ -541,7 +602,78 @@ img { display: block; max-width: 100%; height: auto; }
   gap: 0.75rem;
   margin-top: 0.5rem;
 }
-.dlg-gallery img { border: 1px solid var(--line); }
+.zoom {
+  display: block;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: none;
+  cursor: zoom-in;
+  transition: border-color 160ms ease, transform 200ms var(--ease-out);
+}
+.zoom img { display: block; width: 100%; }
+.zoom:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox { max-width: calc(100vw - 2rem); width: auto; }
+.lightbox-frame {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+}
+.lightbox-frame img {
+  display: block;
+  max-width: min(1400px, calc(100vw - 4rem));
+  max-height: 82dvh;
+  width: auto;
+  height: auto;
+}
+.lightbox-frame .dlg-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 1;
+}
+.lightbox-cap {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.lightbox[open] .lightbox-frame { animation: dlg-in 220ms var(--ease-out); }
+
+/* ---------- Cursor reactivity (pointer devices only) ---------- */
+.section-title::before { display: inline-block; transition: transform 200ms var(--ease-out); }
+.card-media { overflow: hidden; }
+.card-media img { transition: transform 240ms var(--ease-out); }
+.chips li { transition: box-shadow 160ms ease, color 160ms ease, transform 160ms var(--ease-out); }
+.t-body::before { transition: box-shadow 180ms ease; }
+.t-date { transition: color 180ms ease; }
+.loadout-edu .edu { transition: border-color 180ms ease, transform 200ms var(--ease-out); }
+.hud-stat dd { transition: transform 180ms var(--ease-out); }
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-logo:hover { color: var(--accent); }
+  .section-title:hover::before { transform: translateX(5px); }
+  .card:hover .card-media img { transform: scale(1.04); }
+  .chips li:hover {
+    box-shadow: inset 0 0 0 1px var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .timeline-item:hover .t-body::before {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .timeline-item:hover .t-date { color: #ffe27a; }
+  .loadout-edu .edu:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    transform: translateY(-2px);
+  }
+  .hud-stat:hover dd { transform: scale(1.07); }
+  .zoom:hover { border-color: var(--accent); transform: translateY(-2px); }
+}
 
 /* ---------- Reveal on scroll ---------- */
 .reveal {
@@ -568,8 +700,11 @@ img { display: block; max-width: 100%; height: auto; }
     transition: none;
   }
   .blink { animation: none; }
-  .dlg[open] .dlg-frame { animation: none; }
-  .btn, .card, .dlg-close { transition: none; }
+  .dlg[open] .dlg-frame,
+  .lightbox[open] .lightbox-frame { animation: none; }
+  .hero-copy > * { animation: none; }
+  .btn, .card, .dlg-close, .card-media img, .chips li,
+  .loadout-edu .edu, .hud-stat dd, .zoom, .section-title::before { transition: none; }
 }
 
 /* ---------- Responsive ---------- */

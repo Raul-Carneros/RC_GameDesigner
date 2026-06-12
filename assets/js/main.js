@@ -91,10 +91,27 @@
     });
   });
 
-  // ---------- BUG HUNT: hero arcade mini-game ----------
+  // ---------- Image lightbox ----------
+  var lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    var lbImg = lightbox.querySelector('img');
+    var lbCap = lightbox.querySelector('.lightbox-cap');
+    document.querySelectorAll('.zoom').forEach(function (zoomBtn) {
+      zoomBtn.addEventListener('click', function () {
+        var img = zoomBtn.querySelector('img');
+        if (!img) return;
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = img.alt;
+        lightbox.showModal();
+      });
+    });
+  }
+
+  // ---------- BUG HUNT: arcade mini-game (bonus level section) ----------
   // One-button jumper on a 320x180 buffer, upscaled with crisp pixels.
   // Runs only while the canvas is on screen; starts on user input only.
-  var canvas = document.getElementById('arcade');
+  var canvas = document.getElementById('bughunt');
   if (canvas && canvas.getContext) {
     var ctx = canvas.getContext('2d');
     var W = 320, H = 180, GROUND = 150;
