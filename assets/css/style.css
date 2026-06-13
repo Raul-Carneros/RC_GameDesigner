@@ -366,6 +366,169 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--accent);
 }
 
+/* ---------- Player profile / About ---------- */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.profile-class {
+  font-family: var(--font-pixel);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+}
+.profile-lead {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--text);
+}
+.profile-bio {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  max-width: 52ch;
+}
+.profile-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.pillars {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pillars li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.4rem;
+  transition: border-color 200ms ease, transform 200ms var(--ease-out);
+}
+.pillar-icon {
+  display: inline-block;
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.pillars h3 { font-size: 1.05rem; font-weight: 700; }
+.pillars p { color: var(--muted); font-size: 0.95rem; margin-top: 0.25rem; }
+@media (hover: hover) and (pointer: fine) {
+  .pillars li:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    transform: translateX(4px);
+  }
+}
+
+/* ---------- Case study (project dialogs) ---------- */
+.dlg-role {
+  font-family: var(--font-pixel);
+  font-size: 0.72rem;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+.case {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0;
+}
+.case-block { display: flex; flex-direction: column; gap: 0.5rem; }
+.case-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.case-block p { color: var(--muted); }
+.case .dlg-list { margin: 0; }
+.artifacts {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.2rem;
+}
+.artifacts li {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.6rem;
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+
+/* ---------- Section subtitle ---------- */
+.section-sub {
+  color: var(--muted);
+  max-width: 40rem;
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- Side quests / talks ---------- */
+.quests-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.quest {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 200ms ease, transform 200ms var(--ease-out);
+}
+.quest-media { overflow: hidden; }
+.quest-media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 240ms var(--ease-out);
+}
+.quest-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+.quest-meta {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.quest h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.4; }
+.quest-where { color: var(--text); font-weight: 500; }
+.quest-desc { color: var(--muted); flex-grow: 1; }
+.quest-link {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 0.3rem;
+  transition: color 160ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .quest:hover {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    transform: translateY(-3px);
+  }
+  .quest:hover .quest-media img { transform: scale(1.04); }
+  .quest-link:hover { color: #ffe27a; }
+}
+
 /* ---------- Projects ---------- */
 .projects-grid {
   display: grid;
@@ -723,7 +886,8 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-copy > * { animation: none; }
   .hero-scene { animation: none; }
   .btn, .card, .dlg-close, .card-media img, .chips li,
-  .loadout-edu .edu, .hud-stat dd, .zoom, .section-title::before { transition: none; }
+  .loadout-edu .edu, .hud-stat dd, .zoom, .section-title::before,
+  .quest, .quest-media img, .pillars li { transition: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -750,6 +914,8 @@ img { display: block; max-width: 100%; height: auto; }
   }
   .card-wide { grid-template-columns: 1fr; grid-column: auto; }
   .projects-grid { grid-template-columns: 1fr; }
+  .profile-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .quests-grid { grid-template-columns: 1fr; }
   .loadout { grid-template-columns: 1fr 1fr; }
   .loadout-edu { grid-column: 1 / -1; }
 }

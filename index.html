@@ -29,9 +29,11 @@
       </button>
       <nav>
         <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#talks">Talks</a></li>
           <li><a href="#arcade">Arcade</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -181,6 +183,39 @@
       </dl>
     </section>
 
+    <!-- PLAYER PROFILE / ABOUT -->
+    <section class="section profile" id="about">
+      <h2 class="section-title reveal">Player profile</h2>
+      <div class="profile-grid">
+        <div class="profile-main reveal" style="--i:0">
+          <p class="profile-class">Class: Systems &amp; Level Designer</p>
+          <p class="profile-lead">I turn mechanics into moments players feel before they notice the rules behind them.</p>
+          <p class="profile-bio">Four years across shipped and in-development AA titles, from licensed action games to roguelikes and co-op RPGs. I work end to end: pitching the fantasy, writing the GDD, blocking out the level, building the systems in-engine and balancing them until they sing. I also teach the next wave of designers as a professor at U-tad.</p>
+          <div class="profile-actions">
+            <a class="btn btn-primary" href="assets/Raul-Carneros-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+            <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=XK_nhyyZieE" target="_blank" rel="noopener">Watch reel ▸</a>
+          </div>
+        </div>
+        <ul class="pillars reveal" style="--i:1" aria-label="What I do">
+          <li>
+            <span class="pillar-icon" aria-hidden="true">⚙</span>
+            <h3>Systems &amp; balancing</h3>
+            <p>Combat, progression and economy loops, tuned data-first.</p>
+          </li>
+          <li>
+            <span class="pillar-icon" aria-hidden="true">▦</span>
+            <h3>Level design</h3>
+            <p>Blockouts, pacing and encounter logic, built in Unreal &amp; Unity.</p>
+          </li>
+          <li>
+            <span class="pillar-icon" aria-hidden="true">✎</span>
+            <h3>Design docs</h3>
+            <p>GDDs, flowcharts and pitches that keep a team aligned.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section class="section" id="projects">
       <h2 class="section-title reveal">Select stage</h2>
@@ -311,6 +346,34 @@
       </div>
     </section>
 
+    <!-- SIDE QUESTS / TALKS & COMMUNITY -->
+    <section class="section" id="talks">
+      <h2 class="section-title reveal">Side quests</h2>
+      <p class="section-sub reveal" style="--i:1">Talks, panels and sharing what I know beyond shipping games.</p>
+      <ul class="quests-grid">
+        <li class="quest reveal" style="--i:1">
+          <div class="quest-media">
+            <img src="assets/img/eljap-panel.jpg" alt="Raúl Carneros on the indie identity roundtable at the IV Jornadas de El Jap!, Salamanca" width="1280" height="853" loading="lazy">
+          </div>
+          <div class="quest-body">
+            <p class="quest-meta">Roundtable · Apr 2026</p>
+            <h3>Indie identity panel — IV Jornadas de El Jap!</h3>
+            <p class="quest-where">Palacio de Congresos de Salamanca</p>
+            <p class="quest-desc">Panelist on "La identidad indie: game feel y comunidad", on design, game feel and breaking into the industry.</p>
+            <a class="quest-link" href="https://eljap.es/actualidad/las-iv-jornadas-de-el-jap-cerraron-con-exito-y-ganadores" target="_blank" rel="noopener">Read coverage ↗</a>
+          </div>
+        </li>
+        <li class="quest reveal" style="--i:2">
+          <div class="quest-body">
+            <p class="quest-meta">Teaching · 2024 - Present</p>
+            <h3>Lecturing the next generation of designers</h3>
+            <p class="quest-where">U-tad · B.A. Interactive Product Design</p>
+            <p class="quest-desc">Teaching game design and project development, mentoring students from concept to playable.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
     <!-- ARCADE / BONUS LEVEL -->
     <section class="section arcade" id="arcade">
       <h2 class="section-title reveal">Bonus level</h2>
@@ -348,13 +411,31 @@
       </header>
       <p class="dlg-meta">3D Action Game · Tessera Studios for Outright Games · PC, PS, Xbox, Switch</p>
       <p>Play as Bumblebee in a narrative-driven adventure of drifting, driving and fighting, chasing Dr. Meridian, "Mandroid", in the hunt for ancient technology.</p>
-      <h4>My role: System Designer &amp; Level Designer</h4>
-      <ul class="dlg-list">
-        <li>Level design with Unreal Engine 5 modelling and blocking tools.</li>
-        <li>Design, implementation and balancing of game mechanics and systems.</li>
-        <li>GDDs, pitches, flowcharts and narrative documents.</li>
-        <li>Feature implementation in Unreal 5 with Blueprints.</li>
-      </ul>
+      <p class="dlg-role">Role: System Designer &amp; Level Designer</p>
+
+      <div class="case">
+        <div class="case-block">
+          <p class="case-label">The challenge</p>
+          <p>Deliver a licensed action game that reads instantly as Transformers: traversal that flips between vehicle and robot must feel seamless, and combat has to stay readable for a young audience without losing depth.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-label">What I worked on</p>
+          <ul class="dlg-list">
+            <li>Design and balancing of core combat and the drive/fight transform loop in Unreal Engine 5.</li>
+            <li>Blocked out and shipped 3 levels: layout, pacing and encounter logic, from greybox to playable.</li>
+            <li>Implemented features in Blueprints, iterating directly in-engine with the team.</li>
+            <li>Wrote GDDs, pitches, flowcharts and narrative docs that kept design aligned.</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <p class="case-label">Impact</p>
+          <p>Shipped on PC, PlayStation, Xbox and Switch as the official game of the animated series.</p>
+        </div>
+        <ul class="artifacts" aria-label="Design artifacts">
+          <li>GDD</li><li>System diagrams</li><li>Level blockouts</li><li>Combat balancing</li>
+        </ul>
+      </div>
+
       <a class="btn btn-ghost" href="https://store.steampowered.com/app/1955800/TRANSFORMERS_LA_CHISPA_DE_LA_TIERRA__Expedicin/" target="_blank" rel="noopener">View on Steam ↗</a>
       <div class="dlg-gallery">
         <button class="zoom" type="button" aria-label="Enlarge screenshot"><img src="assets/img/transformers-1.jpg" alt="Transformers: Earthspark - Expedition gameplay, exploration" width="1280" height="720" loading="lazy"></button>
@@ -371,12 +452,30 @@
       </header>
       <p class="dlg-meta">Isometric Roguelike · PC, Steam · 2022</p>
       <p>Choose one of five mechs, pick your weapons and enter the world of Bulian to wipe out the bug swarms. Endure as long as you can.</p>
-      <h4>My role: System Designer</h4>
-      <ul class="dlg-list">
-        <li>Design, implementation and balancing of mechanics and systems in Unity 3D.</li>
-        <li>C# programming for game systems and mechanics.</li>
-        <li>GDDs, pitches, flowcharts and narrative documents.</li>
-      </ul>
+      <p class="dlg-role">Role: System Designer</p>
+
+      <div class="case">
+        <div class="case-block">
+          <p class="case-label">The challenge</p>
+          <p>A build-driven roguelike lives or dies on variety: five playable mechs and a pool of weapons have to feel meaningfully different while staying balanced across endless runs.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-label">What I worked on</p>
+          <ul class="dlg-list">
+            <li>Design, implementation and balancing of combat mechanics and systems in Unity 3D, alongside the team.</li>
+            <li>C# programming for game systems and mechanics.</li>
+            <li>GDDs, pitches, flowcharts and narrative documents.</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <p class="case-label">Impact</p>
+          <p>Shipped on Steam with five playable mechs and build-driven combat.</p>
+        </div>
+        <ul class="artifacts" aria-label="Design artifacts">
+          <li>GDD</li><li>System diagrams</li><li>Combat balancing</li><li>Roguelike loop</li>
+        </ul>
+      </div>
+
       <a class="btn btn-ghost" href="https://store.steampowered.com/app/1967750/Iron_Jaw/" target="_blank" rel="noopener">View on Steam ↗</a>
       <div class="dlg-gallery">
         <button class="zoom" type="button" aria-label="Enlarge screenshot"><img src="assets/img/ironjaw-1.jpg" alt="Iron Jaw gameplay, mech combat" width="1280" height="687" loading="lazy"></button>
@@ -395,12 +494,29 @@
       </header>
       <p class="dlg-meta">Fantasy Co-op RPG · PC and consoles · In development</p>
       <p>A 4-player co-op RPG set in a famous IP. Under NDA until the official announcement.</p>
-      <h4>My role: System, Quest &amp; Level Designer</h4>
-      <ul class="dlg-list">
-        <li>Designed three open levels: layout, blockout and logic implementation.</li>
-        <li>Built most game systems and mechanics, leading the design and balancing of the whole economy system.</li>
-        <li>GDDs, pitches and flowcharts.</li>
-      </ul>
+      <p class="dlg-role">Role: System, Quest &amp; Level Designer</p>
+
+      <div class="case">
+        <div class="case-block">
+          <p class="case-label">The challenge</p>
+          <p>A 4-player co-op RPG in a major IP: systems have to hold up across four players and a long progression, and levels need to read clearly for cooperative play.</p>
+        </div>
+        <div class="case-block">
+          <p class="case-label">What I worked on</p>
+          <ul class="dlg-list">
+            <li>Designed three open levels end to end: layout, blockout and logic implementation.</li>
+            <li>Designed and balanced the economy system, and built core systems and mechanics alongside the team.</li>
+            <li>GDDs, pitches and flowcharts.</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <p class="case-label">Status</p>
+          <p>In development. Full reveal coming soon, once the IP is announced.</p>
+        </div>
+        <ul class="artifacts" aria-label="Design artifacts">
+          <li>GDD</li><li>Level design</li><li>Economy design</li><li>Quest design</li>
+        </ul>
+      </div>
       <div class="dlg-gallery">
         <button class="zoom" type="button" aria-label="Enlarge artwork"><img src="assets/img/projectd-card.webp" alt="Project D teaser artwork, a d20 die" width="1730" height="865" loading="lazy"></button>
       </div>
